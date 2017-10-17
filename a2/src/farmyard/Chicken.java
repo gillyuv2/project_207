@@ -149,7 +149,7 @@ public class Chicken {
 
   /** Lay an egg. */
   private void layEgg() {
-    System.out.println("Breakfast! " + "Egg loc: " + c + " " + r);
+//    System.out.println("Breakfast! " + "Egg loc: " + c + " " + r);
     int hereC = c;
     int hereR = r;
     Egg egg = new Egg();
@@ -164,7 +164,7 @@ public class Chicken {
    * @return
    */
   private final boolean digest() {
-    System.out.println("New stuff to make things grow.");
+//    System.out.println("New stuff to make things grow.");
 
     ANIMAL_MANURE getTheScoop = new ANIMAL_MANURE();
     getTheScoop.manure_appearnce = ".";

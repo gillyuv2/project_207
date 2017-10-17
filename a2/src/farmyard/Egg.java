@@ -32,7 +32,7 @@ public class Egg {
    * @param g the graphics context in which to draw this item.
    */
   public void draw(GraphicsContext g) {
-    System.out.println("Brown stuff");
+//    System.out.println("Brown stuff");
     g.setFill(Color.ROSYBROWN);
     g.fillText(String.valueOf(eggShape), y * 10, x * 6);
   }

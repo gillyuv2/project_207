@@ -143,15 +143,15 @@ public class Human {
     }
 
     if (target != null) {
-      System.out.println(
-          "Target acquired: " + target.getX() + " " + target.y + "| Me: " + c + " " + r);
+//      System.out.println(
+//          "Target acquired: " + target.getX() + " " + target.y + "| Me: " + c + " " + r);
       // Am I on an egg?
       if (r == target.getX() && c == target.y) {
-        System.out.println("Egg!");
+//        System.out.println("Egg!");
         this.myBasket.add(target);
         target = null;
         if (myBasket.size() % 12 == 0) {
-          System.out.println("Dozen!");
+//          System.out.println("Dozen!");
           g.fillText("Eggs: " + myBasket.size(), 1 * 10, 1 * 6);
         }
 
