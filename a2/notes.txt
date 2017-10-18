@@ -23,6 +23,16 @@ Flaw: unnecessary if, leading to duplicate code.
 Fix: replaced if statement with a single assignment statement.
 
 
+##########
+# Step 4
+
+Code affected: Pig.clearStomach, Human.move, Egg.draw, Chicken.layegg, Chicken.digest
+
+Flaw: unnecessary print statements in the methods. 
+
+Fix: Commented all the print statements. 
+
+
 
 
 
