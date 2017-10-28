@@ -39,7 +39,6 @@ public class Wind {
    *
    * @return int direction
    */
-
   private static int windDirection(int direction){
     // If the wind is still then assign the direction to wind according to the probablity.
     if (direction == 0){
