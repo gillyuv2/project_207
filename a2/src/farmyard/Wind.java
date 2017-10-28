@@ -1,62 +1,71 @@
 package farmyard;
 
-/** If the iwnd was last blowing up then it is likely to keep blowing up. Same for left/right. */
+/** If the Wind is not blowing it is equally likely to move in one direction and has 10% chance
+ * to remain still.
+ * If wind is moving horizontal/vertical it is 60% likely to remain in same direction, 30% likely to reverse direction
+ * and 10% likely to go still.
+ *
+ **/
+
 public class Wind {
 
-  // Which way was the windod last blowing up or down?
-  private static int lastUp = 0;
+  // Direction selector take 1, -1 and 0 as value
+  private static int horizontal;
+  private static int vertical;
 
-  // Which way was the windod last blowing left or right?
-  private static int lastLeft = 0;
   /**
-   * -1 if the wind is blowing up 1 if the wind is blowing down 0 if the wind isn't blowing Keep
-   * blowing the same direction 30% the time. Turn around 10% of the time. Otherwise no wind.
+   * Returns the vertical direction of the wind.
    *
-   * @return
+   * @return int vertical
    */
-  public static int windBlowingUp() {
-
-    if (lastUp != 0)
-      if (Math.random() < 0.3) {
-        return lastUp;
-      } else if (Math.random() < 0.1) {
-        lastUp = -lastUp;
-        return lastUp;
-      } else lastUp = 0;
-    else
-    // lastUp was zero. Change wind 10% updown each.
-    if (Math.random() < 0.1) {
-      lastUp = -1;
-      return lastUp;
-    } else if (Math.random() < 0.1) {
-      lastUp = 1;
-      return lastUp;
-    }
-    return lastUp;
+  public static int windVertical() {
+    vertical = Wind.windDirection(vertical);
+    return vertical;
   }
 
   /**
-   * -1 if the wind is blowing left 1 if the wind is blowing right 0 if the wind isn't blowing
+   * returns the Horizontal Direction of the wind.
    *
-   * @return
+   * @return int horizontal
    */
-  public static int windBlowingLeft() {
-    if (lastLeft != 0)
-      if (Math.random() < 0.3) {
-        return lastLeft;
-      } else if (Math.random() < 0.1) {
-        lastLeft = -lastLeft;
-        return lastLeft;
-      } else lastLeft = 0;
-    else
-    // lastUp was zero. Change wind 10% updown each.
-    if (Math.random() < 0.1) {
-      lastLeft = -1;
-      return lastLeft;
-    } else if (Math.random() < 0.1) {
-      lastLeft = 1;
-      return lastLeft;
+  public static int windHorizontal() {
+    horizontal = Wind.windDirection(horizontal);
+    return horizontal;
+  }
+
+  /**
+   * Returns 0 if the wind still, or returns 1 or -1 randomly based on the input direction.
+   * direction is always 0, 1 or -1.
+   *
+   * @return int direction
+   */
+
+  private static int windDirection(int direction){
+    // If the wind is still then assign the direction to wind according to the probablity.
+    if (direction == 0){
+      if (Math.random() < 0.45){
+        direction = -1;
+        return direction;
+      } else if (Math.random() > 0.45){
+        direction = 1;
+        return direction;
+      } else {
+        return direction;
+      }
     }
-    return lastLeft;
+    // If the wind is moving then change or retain direction or stops the wind.
+    else {
+       if (Math.random() > 0.9){
+         direction = 0;
+         return direction;
+       }else if (Math.random() < 0.6){
+         return direction;
+       }else{
+         direction = -direction;
+         return direction;
+       }
+    }
   }
 }
+
+

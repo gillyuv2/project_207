@@ -93,10 +93,10 @@ public class Main extends Application {
                       // Figure out whether to float left or right, if at all.
                       AnimalFood lolfood = (AnimalFood) Human.myFarmAnimals[a][b];
 
-                      lolfood.d = Wind.windBlowingUp();
+                      lolfood.d = Wind.windHorizontal();
                       if (lolfood.d == -1) lolfood.blownUp();
                       if (lolfood.d == 1) lolfood.blownDown();
-                      lolfood.d = Wind.windBlowingLeft();
+                      lolfood.d = Wind.windVertical();
                       if (lolfood.d == -1) lolfood.blownLeft();
                       if (lolfood.d == 1) lolfood.blownRight();
                     }

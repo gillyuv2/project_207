@@ -51,6 +51,7 @@ public class Chicken {
         case '\\':
           reverse += '/';
           break;
+
         case '/':
           reverse += '\\';
           break;

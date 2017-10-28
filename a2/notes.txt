@@ -30,7 +30,21 @@ Code affected: Pig.clearStomach, Human.move, Egg.draw, Chicken.layegg, Chicken.d
 
 Flaw: unnecessary print statements in the methods. 
 
-Fix: Commented all the print statements. 
+Fix: Commented all the print statements.
+
+##########
+# Step 5
+
+Code affected: class Wind, Wind.windBlowingUp, Wind.windBlowingDown, class Main
+
+Flaw: 1. redundant code, irrelevant doc strings, irrelevant method and variable names.
+      2. old names for wind methods.
+
+Fix: 1. Created a general method for choosing the direction of the wind. Changed the name of Wind.windBlowingUp, Wind.windBlowingDown to Wind.horizontal and Wind.vertical.
+     2. Created new meaningful variable, method names and doc strings. Changed the probablity of wind direction.
+     3. Reset names of wind methods with the new ones.
+
+
 
 
 
