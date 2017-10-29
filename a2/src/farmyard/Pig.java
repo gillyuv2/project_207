@@ -42,7 +42,7 @@ public class Pig extends Animals {
 
                 this.belly.add(target);
                 System.out.println("Burp");
-                Farm.eggList.remove(target);
+                Farm.animalFoodList.remove(target);
                 Farm.myFarmAnimals[target.getY()][target.getX()] = null;
                 target = null;
 
@@ -81,6 +81,7 @@ public class Pig extends Animals {
         }
 
         if (this.belly.size() > 2){
+            this.belly.clear();
             System.out.println("Pooooooooooooooooooop");
                 digest();
 

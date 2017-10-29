@@ -43,7 +43,7 @@ public class Chicken extends Animals {
       // Am I on an egg?
       if (this.getX() == target.getX() && this.getY() == target.getY()) {
 
-        this.myBasket.add(target);
+        this.belly.add(target);
         Farm.animalFoodList.remove(target);
         Farm.myFarmAnimals[target.getY()][target.getX()] = null;
         target = null;
@@ -82,7 +82,10 @@ public class Chicken extends Animals {
       }
     }
 
-
+    if (this.belly.size() > 1){
+      this.belly.clear();
+      System.out.println("Pooooooooooooooooooop");
+      digest();}
     // Every now and then lay an egg.
     double d2 = Math.random();
     if (Math.random() < 0.1) {

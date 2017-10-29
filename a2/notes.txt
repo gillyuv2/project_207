@@ -145,3 +145,11 @@ Flaw: 1. Food was not properly collected.
 Fix: 1. Changed the conditions of reaching target in move method. Added a way to remove the object from the food list
         collection and the array that is used as grid in the main file to support the canvas.
 
+#########
+# Step 14
+
+Code Affected: .java file 1. Chicken 2. Pig
+
+Flaw: 1. Error in move condition. No maure was getting out. Then a lot of manure was coming out
+
+Fix: 1. Fixed the move method for both of the move methods.
