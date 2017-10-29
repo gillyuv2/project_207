@@ -37,32 +37,30 @@ public class Main extends Application {
 
     GraphicsContext gc = canvas.getGraphicsContext2D();
 
-    Human.myFarmAnimals[0][0] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[0][0]).setLocation(23, 18);
-    Human.myFarmAnimals[6][12] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[6][12]).setLocation(6, 12);
-    Human.myFarmAnimals[17][4] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[17][4]).setLocation(17, 4);
-    Human.myFarmAnimals[15][28] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[15][28]).setLocation(15, 28);
-    Human.myFarmAnimals[23][18] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[23][18]).setLocation(15, 36);
-    Human.myFarmAnimals[16][35] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[16][35]).setLocation(16, 35);
-    Human.myFarmAnimals[16][35] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[16][35]).setLocation(16, 35);
-    Human.myFarmAnimals[16][22] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[16][22]).setLocation(16, 18);
-    Human.myFarmAnimals[23][18] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[23][18]).setLocation(23, 18);
-    Human.myFarmAnimals[6][12] = new Chicken();
-    ((Chicken) Human.myFarmAnimals[6][12]).setLocation(6, 12);
-    Human.myFarmAnimals[10][20] = new Pig();
-    ((Pig) Human.myFarmAnimals[10][20]).setLocation(10, 20);
-    Human.myFarmAnimals[20][10] = new Pig();
-    ((Pig) Human.myFarmAnimals[20][10]).setLocation(20, 10);
-    Human.myFarmAnimals[30][30] = new Human();
-    ((Human) Human.myFarmAnimals[30][30]).setLocation(30, 30);
+    Farm.myFarmAnimals[0][0] = new Chicken(0, 0);
+
+    Farm.myFarmAnimals[6][12] = new Chicken(6, 12);
+
+    Farm.myFarmAnimals[17][4] = new Chicken(17, 4);
+
+    Farm.myFarmAnimals[15][28] = new Chicken(15, 28);
+
+    Farm.myFarmAnimals[23][18] = new Chicken(23, 18);
+
+    Farm.myFarmAnimals[16][35] = new Chicken(16, 35);
+
+    Farm.myFarmAnimals[16][22] = new Chicken(16, 22);
+
+    Farm.myFarmAnimals[23][18] = new Chicken(23, 18);
+
+    Farm.myFarmAnimals[6][12] = new Chicken(6, 12);
+
+    Farm.myFarmAnimals[10][20] = new Pig(10, 20);
+
+    Farm.myFarmAnimals[20][10] = new Pig(20, 10);
+
+    Farm.myFarmAnimals[30][30] = new Human(30, 30);
+
 
     drawShapes(gc);
 
@@ -77,29 +75,29 @@ public class Main extends Application {
               public void handle(ActionEvent ae) {
                 double t = (System.currentTimeMillis() - timeStart) / 1000.0;
 
-                for (int a = 0; a != (int) (480 / 10); a++) {
-                  for (int b = 0; b != (int) (640 / 6); b++) {
-                    if (Human.myFarmAnimals[a][b] != null)
-                      if (Human.myFarmAnimals[a][b] instanceof Chicken) {
-                        ((Chicken) Human.myFarmAnimals[a][b]).move();
-                      } else if (Human.myFarmAnimals[a][b] instanceof Pig) {
-                        ((Pig) Human.myFarmAnimals[a][b]).move();
-                      } else if (Human.myFarmAnimals[a][b] instanceof Human) {
-                        ((Human) Human.myFarmAnimals[a][b]).move();
-                      } else if (Human.myFarmAnimals[a][b] instanceof AnimalManure) {
+                for (int a = 0; a != (int) (1024); a++) {
+                  for (int b = 0; b != (int) (720); b++) {
+                    if (Farm.myFarmAnimals[a][b] != null)
+                      if (Farm.myFarmAnimals[a][b] instanceof Chicken) {
+                        ((Chicken) Farm.myFarmAnimals[a][b]).move();
+                      } else if (Farm.myFarmAnimals[a][b] instanceof Pig) {
+                        ((Pig) Farm.myFarmAnimals[a][b]).move();
+                      } else if (Farm.myFarmAnimals[a][b] instanceof Human) {
+                        ((Human) Farm.myFarmAnimals[a][b]).move();
+                      } else if (Farm.myFarmAnimals[a][b] instanceof AnimalManure) {
 
                       }
-                    if (Human.myFarmAnimals[a][b] instanceof AnimalFood) {
+                      else if (Farm.myFarmAnimals[a][b] instanceof AnimalFood) {
                       // Figure out whether to float left or right, if at all.
-                      AnimalFood lolfood = (AnimalFood) Human.myFarmAnimals[a][b];
+                        AnimalFood lolfood = (AnimalFood) Farm.myFarmAnimals[a][b];
 
-                      lolfood.d = Wind.windHorizontal();
-                      if (lolfood.d == -1) lolfood.blownUp();
-                      if (lolfood.d == 1) lolfood.blownDown();
-                      lolfood.d = Wind.windVertical();
-                      if (lolfood.d == -1) lolfood.blownLeft();
-                      if (lolfood.d == 1) lolfood.blownRight();
-                    }
+                        lolfood.d = Wind.windHorizontal();
+                        if (lolfood.d == -1) lolfood.blownUp();
+                        if (lolfood.d == 1) lolfood.blownDown();
+                        lolfood.d = Wind.windVertical();
+                        if (lolfood.d == -1) lolfood.blownLeft();
+                        if (lolfood.d == 1) lolfood.blownRight();
+                      }
                   }
                 }
 
@@ -116,25 +114,25 @@ public class Main extends Application {
 
   private void drawShapes(GraphicsContext gc) {
     // Tell all the farmyard items to draw themselves.
-    for (int a = 0; a != (int) (480 / 10); a++) {
-      for (int b = 0; b != (int) (640 / 6); b++) {
-        if (Human.myFarmAnimals[a][b] != null) {
+    for (int a = 0; a != (int) (1024); a++) {
+      for (int b = 0; b != (int) (720); b++) {
+        if (Farm.myFarmAnimals[a][b] != null) {
 
-          if (Human.myFarmAnimals[a][b] instanceof Chicken) {
+          if (Farm.myFarmAnimals[a][b] instanceof Chicken) {
 
-            ((Chicken) Human.myFarmAnimals[a][b]).draw(gc);
-          } else if (Human.myFarmAnimals[a][b] instanceof Pig) {
-            ((Pig) Human.myFarmAnimals[a][b]).draw(gc);
-          } else if (Human.myFarmAnimals[a][b] instanceof Human) {
-            ((Human) Human.myFarmAnimals[a][b]).draw(gc);
-          } else if (Human.myFarmAnimals[a][b] instanceof AnimalManure) {
-            ((AnimalManure) Human.myFarmAnimals[a][b]).draw(gc);
+            ((Chicken) Farm.myFarmAnimals[a][b]).draw(gc);
+          } else if (Farm.myFarmAnimals[a][b] instanceof Pig) {
+            ((Pig) Farm.myFarmAnimals[a][b]).draw(gc);
+          } else if (Farm.myFarmAnimals[a][b] instanceof Human) {
+            ((Human) Farm.myFarmAnimals[a][b]).draw(gc);
+          } else if (Farm.myFarmAnimals[a][b] instanceof AnimalManure) {
+            ((AnimalManure) Farm.myFarmAnimals[a][b]).draw(gc);
           }
-          if (Human.myFarmAnimals[a][b] instanceof AnimalFood) {
-            ((AnimalFood) Human.myFarmAnimals[a][b]).draw(gc);
+          if (Farm.myFarmAnimals[a][b] instanceof AnimalFood) {
+            ((AnimalFood) Farm.myFarmAnimals[a][b]).draw(gc);
           }
-          if (Human.myFarmAnimals[a][b] instanceof Egg) {
-            ((Egg) Human.myFarmAnimals[a][b]).draw(gc);
+          if (Farm.myFarmAnimals[a][b] instanceof Egg) {
+            ((Egg) Farm.myFarmAnimals[a][b]).draw(gc);
           }
         }
       }

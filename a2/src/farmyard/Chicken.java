@@ -3,35 +3,29 @@ package farmyard;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+
 public class Chicken extends Animals {
-  /** How this Chicken appears on the screen. */
-  String appearance;
 
-  /** Indicates whether this Chicken is moving right. */
+
+  private ArrayList<AnimalFood> belly = new ArrayList<>();
+
   boolean goingRight;
-
-  /** This Chicken's first coordinate. */
-
-  /** The colour of this Chicken. */
-
-  /** This Chicken's second coordinate. */
+  private ArrayList<AnimalFood> myBasket = new ArrayList<AnimalFood>();
+  AnimalFood target = null;
 
 
   /** Constructs a new Chicken. */
-  public Chicken() {
+  public Chicken(int x, int y) {
     this.setColor(Color.RED);
     this.setAppearance("/'/>");
     this.setManure(".");
     this.goingRight = true;
+    this.setLocation(x,y);
   }
 
   /** Set this item's location. */
-  public static Egg aneggishere() {
-    for (int r = 0; r != Human.myFarmAnimals.length; r++)
-      for (int c = 0; c != Human.myFarmAnimals[0].length; c++)
-        if (Human.myFarmAnimals[r][c] instanceof Egg) return (Egg) Human.myFarmAnimals[r][c];
-    return null;
-  }
+
 
 
   /** Causes this item to take its turn in the farm-pen simulation. */
@@ -43,11 +37,19 @@ public class Chicken extends Animals {
       digest();
     }
 
-    // Move one spot to the right or left.
-    if (goingRight) {
-      this.setLocation(this.getX()+1, this.getY());
-    } else {
-      this.setLocation(this.getX()-1, this.getY());
+    double d = Math.random();
+    if (d < 0.25) {
+      this.setLocation(this.getX(), this.getY()+1);
+    } else if (0.25 < d && d < 0.5) {
+      this.setLocation(this.getX(), this.getY()-1);
+    } else if (0.5 < d && d < 0.75) {
+      this.setLocation(this.getX() + 1, this.getY());
+    } else{
+      this.setLocation(this.getX() - 1, this.getY());
+    }
+    double f = Math.random();
+    if (f < 0.1) {
+      turnAround();
     }
 
     // Every now and then lay an egg.
@@ -64,13 +66,9 @@ public class Chicken extends Animals {
 
   /** Lay an egg. */
   private void layEgg() {
-//    System.out.println("Breakfast! " + "Egg loc: " + c + " " + r);
+    Egg egg = new Egg(this.getX(), this.getY());
+    Farm.eggList.add(egg);
+    Farm.myFarmAnimals[this.getY()][this.getX()] = egg;
 
-    Egg egg = new Egg();
-    egg.setLocation(this.getX(), this.getY());
-
-    Human.myFarmAnimals[this.getY()][this.getX()] = egg;
-  }
-
-
+    }
 }
