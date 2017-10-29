@@ -32,30 +32,27 @@ public class Pig extends Animals {
         double d = Math.random();
         if (target == null) {
             target = Animals.foodLocator();
+            System.out.println(target);
         }
 
         if (target != null) {
 
             // Am I on an egg?
             if (this.getX() == target.getX() && this.getY() == target.getY()) {
-//        System.out.println("Egg!");
-                System.out.println(
-                        "Target acquired: " + target.getX() + " " + target.getX() + "| Me: " + target.getY() + " " + target.getY());
-                System.out.println(this.getX() + " ----  " + this.getY());
-                Farm.animalFoodList.remove(target);
+
                 this.belly.add(target);
-//                target = null;
-
-                target = Animals.foodLocator();
-
+                System.out.println("Burp");
+                Farm.eggList.remove(target);
+                Farm.myFarmAnimals[target.getY()][target.getX()] = null;
+                target = null;
 
 
             } else {
 
                 // move toward the egg
-                if (this.getX() < target.getY()) {
+                if (this.getY() < target.getY()) {
                     this.setLocation(this.getX(), this.getY() + 1);
-                } else if (this.getY() > target.getX()) {
+                } else if (this.getY() > target.getY()) {
                     this.setLocation(this.getX(), this.getY() - 1);
                 } else {
                     this.setLocation(this.getX(), this.getY());
@@ -81,26 +78,18 @@ public class Pig extends Animals {
             } else {
                 this.setLocation(this.getX() - 1, this.getY());
             }
-
-
-            // Figure out whether I should drop food.
-
-
-            // Figure out whether I turn around.
-            double f = Math.random();
-            if (f < 0.3) {
-                turnAround();
-            }
         }
 
+        if (this.belly.size() > 2){
+            System.out.println("Pooooooooooooooooooop");
+                digest();
 
-        if (Math.random() < 0.2) {
-            digest();
         }
 
         if (Math.random() < 0.1) {
             turnAround();
         }
-    }
 
+
+    }
 }

@@ -132,7 +132,16 @@ Flaw: 1. Eggs were not properly collected.
       2. Eggs were not removed properly from the screen.
 
 Fix: 1. Changed the conditions of reaching target in move method. Added a way to remove the object from the eggList
-        collection and the array that is used as grid in the main file to support the canvas. 
+        collection and the array that is used as grid in the main file to support the canvas.
 
+#########
+# Step 13
 
+Code Affected: .java file 1. Chicken 2. Pig
+
+Flaw: 1. Food was not properly collected.
+      2. Food was not removed properly from the screen.
+
+Fix: 1. Changed the conditions of reaching target in move method. Added a way to remove the object from the food list
+        collection and the array that is used as grid in the main file to support the canvas.
 

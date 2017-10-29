@@ -13,6 +13,7 @@ public class Chicken extends Animals {
   boolean goingRight;
   private ArrayList<AnimalFood> myBasket = new ArrayList<AnimalFood>();
   AnimalFood target = null;
+  private GraphicsContext g;
 
 
   /** Constructs a new Chicken. */
@@ -31,35 +32,65 @@ public class Chicken extends Animals {
   /** Causes this item to take its turn in the farm-pen simulation. */
   public void move() {
 
-    // Sometimes food doesn't sit well in the stomach, so I have to clear my stomach
-    double d1 = Math.random();
-    if (d1 < 0.2) {
-      digest();
+    double d = Math.random();
+    if (target == null) {
+      target = Animals.foodLocator();
+
     }
 
-    double d = Math.random();
-    if (d < 0.25) {
-      this.setLocation(this.getX(), this.getY()+1);
-    } else if (0.25 < d && d < 0.5) {
-      this.setLocation(this.getX(), this.getY()-1);
-    } else if (0.5 < d && d < 0.75) {
-      this.setLocation(this.getX() + 1, this.getY());
-    } else{
-      this.setLocation(this.getX() - 1, this.getY());
+    if (target != null) {
+
+      // Am I on an egg?
+      if (this.getX() == target.getX() && this.getY() == target.getY()) {
+
+        this.myBasket.add(target);
+        Farm.animalFoodList.remove(target);
+        Farm.myFarmAnimals[target.getY()][target.getX()] = null;
+        target = null;
+
+
+      } else {
+
+        // move toward the egg
+        if (this.getY() < target.getY()) {
+          this.setLocation(this.getX(), this.getY() + 1);
+        } else if (this.getY() > target.getY()) {
+          this.setLocation(this.getX(), this.getY() - 1);
+        } else {
+          this.setLocation(this.getX(), this.getY());
+        }
+        if (this.getX() < target.getX()) {
+          this.setLocation(this.getX() + 1, this.getY());
+        } else if (this.getX() > target.getX()) {
+          this.setLocation(this.getX() - 1, this.getY());
+        } else {
+          this.setLocation(this.getX(), this.getY());
+        }
+      }
+    } else {
+      // no egg to pick up
+      // Move one spot to the right or left.
+
+      if (d < 0.25) {
+        this.setLocation(this.getX(), this.getY() + 1);
+      } else if (0.25 < d && d < 0.5) {
+        this.setLocation(this.getX(), this.getY() - 1);
+      } else if (0.5 < d && d < 0.75) {
+        this.setLocation(this.getX() + 1, this.getY());
+      } else {
+        this.setLocation(this.getX() - 1, this.getY());
+      }
     }
-    double f = Math.random();
-    if (f < 0.1) {
-      turnAround();
-    }
+
 
     // Every now and then lay an egg.
     double d2 = Math.random();
-    if (d1 < 0.1) {
+    if (Math.random() < 0.1) {
       layEgg();
     }
 
     double d3 = Math.random();
-    if (d1 < 0.1) {
+    if (Math.random() < 0.1) {
       turnAround();
     }
   }
