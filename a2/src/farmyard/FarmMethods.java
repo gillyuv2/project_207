@@ -10,10 +10,10 @@ public abstract class FarmMethods {
     private Color color;
     private int y;
 
-    FarmMethods(){
+    public FarmMethods(){
     }
 
-    void setLocation(int x, int y){
+    public void setLocation(int x, int y){
         this.x = x;
         this.y = y;
     }

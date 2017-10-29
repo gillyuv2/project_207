@@ -82,6 +82,23 @@ Fix: 1. Fixed AnimalFood methods: 1.blownUp 2. blownDown 3. blownLeft 4. blownRi
      2. Fixed calls to previously protected variable Y in Human, Pig and Chicken file and changed it with getY()
      3. Changed the calls to previously public variable 'colour' with the method getColor().
 
+##########
+# Step 9
+
+Code affected: .java files: 1. Animals 2. Human 3. Pig 4. Chicken
+
+Flaw: 1. Redundant code in Human, Pig and Chicken class.
+      2. Methods and class variables are copied and pasted.
+      3. Common Errors in the classes.
+
+Fix: 1. Animals class with methods: 1. setManure 2. reverseAppearance 3. turnAround 4. digest.
+        -Variables: 1. manure 2. horizontal 3. vertical 4. belly 5. target.
+     2. Removed the redundant code from Human, Pig and Chicken.
+     3. Replaced old variable names with getters and setters for co-ordinates x and y, color and
+        appearance.
+     4. Cleaned the redundant variables from the files.
+     5. Removed unnecessary and irrelevant doc stings and comments.
+
 
 
 
