@@ -1,43 +1,30 @@
 package farmyard;
 
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 /** An egg that a farmer collects. */
-public class Egg {
-
-  /** How this piece of food appears on the screen. */
-  private char eggShape = 'o';
-
-  /** This food's first coordinate. */
-  private int x;
-  /** This food's second coordinate. */
-  protected int y;
+public class Egg extends FarmMethods {
 
   /**
-   * Set this item's location.
-   *
-   * @param hereR the horizontalcoordinate.
-   * @param hereC the vertical coordinate.
+   * How this piece of food appears on the screen.
    */
-  public void setLocation(int hereR, int hereC) {
-    x = hereR;
-    // set y to b
-    y = hereC;
-  }
+  private char eggShape = 'o';
 
+  Egg() {
+    this.setColor(Color.ROSYBROWN);
+    this.setAppearance("O");
+  }
+}
+//  @Override
   /**
    * Draws this farm pen item.
    *
    * @param g the graphics context in which to draw this item.
    */
-  public void draw(GraphicsContext g) {
-//    System.out.println("Brown stuff");
-    g.setFill(Color.ROSYBROWN);
-    g.fillText(String.valueOf(eggShape), y * 10, x * 6);
-  }
+//  public void draw(GraphicsContext g) {
+////    System.out.println("Brown stuff");
+//    g.setFill(Color.ROSYBROWN);
+//    g.fillText(String.valueOf(eggShape), y * 10, x * 6);
+//  }
 
-  int getX() {
-    return x;
-  }
-}
+

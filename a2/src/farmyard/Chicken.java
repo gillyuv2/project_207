@@ -167,8 +167,8 @@ public class Chicken {
   private final boolean digest() {
 //    System.out.println("New stuff to make things grow.");
 
-    ANIMAL_MANURE getTheScoop = new ANIMAL_MANURE();
-    getTheScoop.manure_appearnce = ".";
+    AnimalManure getTheScoop = new AnimalManure();
+    getTheScoop.setAppearance(".");
     getTheScoop.setLocation(c, r);
 
     Human.myFarmAnimals[r][c] = getTheScoop;

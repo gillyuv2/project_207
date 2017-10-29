@@ -146,7 +146,7 @@ public class Human {
 //      System.out.println(
 //          "Target acquired: " + target.getX() + " " + target.y + "| Me: " + c + " " + r);
       // Am I on an egg?
-      if (r == target.getX() && c == target.y) {
+      if (r == target.getX() && c == target.getY()) {
 //        System.out.println("Egg!");
         this.myBasket.add(target);
         target = null;
@@ -163,7 +163,7 @@ public class Human {
         } else {
           r -= 1;
         }
-        if (c < target.y) {
+        if (c < target.getY()) {
           c += 1;
         } else {
           c -= 1;

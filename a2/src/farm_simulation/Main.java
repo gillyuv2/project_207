@@ -86,7 +86,7 @@ public class Main extends Application {
                         ((Pig) Human.myFarmAnimals[a][b]).move();
                       } else if (Human.myFarmAnimals[a][b] instanceof Human) {
                         ((Human) Human.myFarmAnimals[a][b]).move();
-                      } else if (Human.myFarmAnimals[a][b] instanceof ANIMAL_MANURE) {
+                      } else if (Human.myFarmAnimals[a][b] instanceof AnimalManure) {
 
                       }
                     if (Human.myFarmAnimals[a][b] instanceof AnimalFood) {
@@ -127,8 +127,8 @@ public class Main extends Application {
             ((Pig) Human.myFarmAnimals[a][b]).draw(gc);
           } else if (Human.myFarmAnimals[a][b] instanceof Human) {
             ((Human) Human.myFarmAnimals[a][b]).draw(gc);
-          } else if (Human.myFarmAnimals[a][b] instanceof ANIMAL_MANURE) {
-            ((ANIMAL_MANURE) Human.myFarmAnimals[a][b]).draw(gc);
+          } else if (Human.myFarmAnimals[a][b] instanceof AnimalManure) {
+            ((AnimalManure) Human.myFarmAnimals[a][b]).draw(gc);
           }
           if (Human.myFarmAnimals[a][b] instanceof AnimalFood) {
             ((AnimalFood) Human.myFarmAnimals[a][b]).draw(gc);

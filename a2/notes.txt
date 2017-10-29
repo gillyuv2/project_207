@@ -37,12 +37,50 @@ Fix: Commented all the print statements.
 
 Code affected: class Wind, Wind.windBlowingUp, Wind.windBlowingDown, class Main
 
-Flaw: 1. redundant code, irrelevant doc strings, irrelevant method and variable names.
-      2. old names for wind methods.
+Flaw: 1. Redundant code in methods windBlowingUp and windBlowingLeft, irrelevant doc strings, irrelevant method
+         and variable names.
+      2. Old names for wind methods.
 
-Fix: 1. Created a general method for choosing the direction of the wind. Changed the name of Wind.windBlowingUp, Wind.windBlowingDown to Wind.horizontal and Wind.vertical.
+Fix: 1. Created a general method for choosing the direction of the wind. Changed the name of Wind.windBlowingUp,
+        Wind.windBlowingDown to Wind.horizontal and Wind.vertical.
      2. Created new meaningful variable, method names and doc strings. Changed the probablity of wind direction.
      3. Reset names of wind methods with the new ones.
+
+##########
+# Step 6
+
+Code affected: new .java file named FarmMethods
+
+Flaw: Repetitive code in other .java files
+
+Fix: Created a super class with methods: 1.setLocation 2.getX 3.getY 4.setColor 5.getColor 6.drawString 7.draw
+                                         8.setAppearance 9.getAppearance
+
+##########
+# Step 7
+
+Code affected: .java files 1. AnimalManure 2. AnimalFood 3. Egg
+
+Flaw: Unnecessary similar code: 1. Methods: setLocation, draw, drawString 2. Variable: x, y, appearance, colour
+
+Fix: 1. Removed all the above mentioned methods along with their doc strings. Removed all the above mentioned unnecessary
+        variables.
+     2. Added constructor to Egg class and set its appearance with setAppearance method and set its color with
+        setColor method.
+
+##########
+# Step 8
+
+Code affected: .java files: 1. Human 2. Pig 3. Chicken 4. AnimalFood
+
+Flaw: different method names, calls to public or protected variables y and color and methods.
+
+Fix: 1. Fixed AnimalFood methods: 1.blownUp 2. blownDown 3. blownLeft 4. blownRight
+        - removed changes to x and y as previously implemented.
+        - used method setLocation and getX and getY and implemented the code to blow food up, down, left and right
+          as per method names.
+     2. Fixed calls to previously protected variable Y in Human, Pig and Chicken file and changed it with getY()
+     3. Changed the calls to previously public variable 'colour' with the method getColor().
 
 
 
