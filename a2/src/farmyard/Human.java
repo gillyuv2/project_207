@@ -91,11 +91,10 @@ public class Human extends Animals {
       if (this.getX() == target.getX() && this.getY() == target.getY()) {
 
         this.myBasket.add(target);
-        System.out.println(myBasket);
+        System.out.println(Farm.eggList);
         Farm.eggList.remove(target);
+        Farm.myFarmAnimals[target.getY()][target.getX()] = null;
         target = null;
-
-        target = Chicken.eggLocator();
 
         if (myBasket.size() % 12 == 0) {
 //          System.out.println("Dozen!");

@@ -99,9 +99,40 @@ Fix: 1. Animals class with methods: 1. setManure 2. reverseAppearance 3. turnAro
      4. Cleaned the redundant variables from the files.
      5. Removed unnecessary and irrelevant doc stings and comments.
 
+##########
+# Step 10
 
+Code affected: .java file 1. Main 2. Human 3. Farm 4. Chicken 5. Pig
 
+Flaw: public static array in human that is not useful for human.
 
+Fix: 1. Created the public static array in different class Farm
+     2. Changed the instances of the variable Human.myFarmAnimals with Farm.myFarmAnimals in the Human Farm and Chicken
+        and Pig.
+
+##########
+# Step 11
+
+Code affected: .java file 1. Main 2. Human 3. Farm 4. Chicken 5. Pig
+
+Flaw: public static array in human that is not useful for human.
+
+Fix: 1. Created the public static array in different class Farm
+     2. Changed the instances of the variable Human.myFarmAnimals with Farm.myFarmAnimals in the Human Farm and Chicken
+        and Pig.
+     3. Created static lists that store Egg, AnimalFood and Animal Manure.
+     4. These lists will eleminate the need to iterate over the empty array.
+
+#########
+# Step 12
+
+Code Affected: .java file 1. Human
+
+Flaw: 1. Eggs were not properly collected.
+      2. Eggs were not removed properly from the screen.
+
+Fix: 1. Changed the conditions of reaching target in move method. Added a way to remove the object from the eggList
+        collection and the array that is used as grid in the main file to support the canvas. 
 
 
 
