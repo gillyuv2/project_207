@@ -250,3 +250,14 @@ Code Affected: .java files 1. Wind.java
 Flaw: Error in the values of the wind direction.
 
 Fix: decreased the probability of movement of the wind.
+
+#########
+# Step 23
+
+Code Affected: .java files 1. Animals
+
+Flaw: Repetitive code for move in Pig and Chicken.
+
+Fix: 1. Implemented the move method for the Animals file.
+     2. Changed the specifics of the implantation of the move method by renaming the collector for the target.
+      
