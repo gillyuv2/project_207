@@ -388,3 +388,12 @@ Code Affected: .java file 1. Animals
 Flaw: Yellow error shown by the idea.
 
 Fix: 1. Fixed the reverse appearance method by using the string builder.
+
+############
+# Code Affected: All.java
+
+Flaw: Not properly implemented doc strings.
+
+Fix: Implemented all the doc string correctly. 
+
+

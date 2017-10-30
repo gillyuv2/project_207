@@ -5,51 +5,67 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-
+/** Human class to make human object on the java fx when the animation starts. */
 public class Human extends Animals {
 
-
+  // A basket to hold the eggs collected from the chicken
   private ArrayList<Egg> myBasket = new ArrayList<>();
 
-
-  /** Constructs a new Human. */
+  /**
+   * Constructor for the Human. Instantiates the Human and sets its location, color and appearance.
+   *
+   * @param x sets the x co-ordinate
+   * @param y sets the y co-ordinate
+   * @return None
+   */
   public Human(int x, int y) {
     this.setColor(Color.SANDYBROWN.darker());
     this.setAppearance("human");
     this.setLocation(x, y);
   }
 
-  /** Causes human to drop down 4 piece s of food all around. */
+  /**
+   * Human drops four pieces of food around it in Java fx.
+   *
+   * @return None
+   */
   private void dropFood() {
 
-    AnimalFood fooood = new AnimalFood(this.getX() - 1, this.getY() - 1);
-    Farm.track2.add(fooood);
+    AnimalFood food = new AnimalFood(this.getX() - 1, this.getY() - 1);
+    Farm.track2.add(food);
 
-    fooood = new AnimalFood(this.getX() - 1, this.getY() + 1);
-    Farm.track2.add(fooood);
+    food = new AnimalFood(this.getX() - 1, this.getY() + 1);
+    Farm.track2.add(food);
 
-    fooood = new AnimalFood(this.getX() + 1, this.getY() - 1);
-    Farm.track2.add(fooood);
+    food = new AnimalFood(this.getX() + 1, this.getY() - 1);
+    Farm.track2.add(food);
 
-    fooood = new AnimalFood(this.getX() + 1, this.getY() + 1);
+    food = new AnimalFood(this.getX() + 1, this.getY() + 1);
 
-    Farm.track2.add(fooood);
+    Farm.track2.add(food);
   }
 
+  /**
+   * Draw method for human to show the Egg counter in the java fx during animation.
+   *
+   * @return None
+   */
   public void draw(GraphicsContext g) {
     g.fillText("Eggs: " + myBasket.size(), 20, 30);
     drawString(g, this.getAppearance(), this.getX(), this.getY());
   }
 
-  /** Causes this item to take its turn in the farm-pensimulation. */
+  /**
+   * Moves the Human object during the animation.
+   *
+   * @return None
+   */
   public void humanMove() {
-      this.move();
-      myBasket.addAll(this.getCollection());
-      this.clearCollection();
-      if (Math.random() < 0.05){
+    this.move();
+    myBasket.addAll(this.getCollection());
+    this.clearCollection();
+    if (Math.random() < 0.05) {
       this.dropFood();
-      }
+    }
   }
 }
-
-

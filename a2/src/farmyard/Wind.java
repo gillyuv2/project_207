@@ -12,7 +12,7 @@ public class Wind {
   private static int vertical;
 
   /**
-   * Returns the vertical direction of the wind.
+   * Returns the vertical direction of the wind. @Param None
    *
    * @return int vertical
    */
@@ -35,12 +35,13 @@ public class Wind {
    * Returns 0 if the wind still, or returns 1 or -1 randomly based on the input direction.
    * direction is always 0, 1 or -1.
    *
+   * @param direction A direction integer to represent the positive or negative direction.
    * @return int direction
    */
   private static int windDirection(int direction) {
     // If the wind is still then assign the direction to wind according to the probability.
     if (direction == 0) {
-        double d = Math.random();
+      double d = Math.random();
       if (d < 0.010) {
         direction = -1;
         return direction;
@@ -63,6 +64,7 @@ public class Wind {
         direction = -direction;
         return direction;
       }
-    }return 0;
+    }
+    return 0;
   }
 }

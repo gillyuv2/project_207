@@ -2,10 +2,17 @@ package farmyard;
 
 import javafx.scene.paint.Color;
 
-/** Animal Food */
+/** AnimalFood class to make animal food object on the java fx when the animation starts. */
 public class AnimalFood extends FarmMethods {
 
-  /** Constructs a new bubble at the specified cursor location (x, y). */
+    /**
+     * Constructor for the AnimalFood. Instantiates the AnimalManure and sets
+     * its location, color, appearance and adds it to the Farm.track2 and
+     * Farm.manureList.
+     *
+     * @param x sets the x co-ordinate
+     * @param y sets the y co-ordinate
+     */
   AnimalFood(int x, int y) {
     this.setColor(Color.GRAY.darker().darker().darker());
     this.setLocation(x, y);
@@ -15,43 +22,48 @@ public class AnimalFood extends FarmMethods {
   }
 
   /**
-   * Causes this item to take its turn in the farm-pen simulation, blown due to strong winds. Up in
-   * this case
+   * Increases the y co-ordinate by 1.
+   *
+   * @return none
    */
   public void blownUp() {
 
-    // Move upwards
+    // Move upwards by one step.
     this.setLocation(this.getX(), this.getY() + 1);
-    // no change left or right
+
   }
 
-  /**
-   * Causes this item to take its turn in the farm-pen simulation, blown due to strong winds. Down
-   * in this case
-   */
+    /**
+     * Decreases the y co-ordinate by 1.
+     *
+     * @return none
+     */
   public void blownDown() {
 
-    // Move downwards
+    // Move downwards by one step.
     this.setLocation(this.getX(), this.getY() - 1);
   }
 
-  /**
-   * Causes this item to take its turn in the farm-pen simulation, blown due to strong winds. Up and
-   * Left in this case
-   */
+    /**
+     * Decreases the x co-ordinate by 1.
+     *
+     * @return none
+     */
   public void blownLeft() {
 
-    // Move upwards.
+    // Move left by one step.
     this.setLocation(this.getX() - 1, this.getY());
   }
 
-  /**
-   * Causes this item to take its turn in the farm-pen simulation, blown due to strong winds. Up and
-   * Right in this case
-   */
+    /**
+     * Increases the x co-ordinate by 1.
+     *
+     * @return none
+     */
   public void blownRight() {
 
-    // Move upwards.
+    // Move right by one step..
     this.setLocation(this.getX() + 1, this.getY());
   }
+
 }

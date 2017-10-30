@@ -90,12 +90,11 @@ public class Main extends Application {
                 gc.clearRect(0, 0, 1024, 720);
                 drawShapes(gc);
               }
+  });
 
-            });
-
-      gameLoop.getKeyFrames().add(kf);
-      gameLoop.play();
-      primaryStage.show();
+    gameLoop.getKeyFrames().add(kf);
+    gameLoop.play();
+    primaryStage.show();
   }
 
   private void drawShapes(GraphicsContext gc) {
