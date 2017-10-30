@@ -380,3 +380,11 @@ Fix:  1. Made all the changes to the methods of AnimalFood as indicated by the i
             2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
 
 
+###########
+# Step 33:
+
+Code Affected: .java file 1. Animals
+
+Flaw: Yellow error shown by the idea.
+
+Fix: 1. Fixed the reverse appearance method by using the string builder.

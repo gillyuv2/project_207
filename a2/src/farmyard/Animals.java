@@ -22,46 +22,47 @@ public class Animals extends FarmMethods {
   }
 
   private String reverseAppearance() {
-    String reverse = "";
+
+    StringBuilder reverse = new StringBuilder();
     for (int i = this.getAppearance().length() - 1; i >= 0; i--) {
       switch (this.getAppearance().charAt(i)) {
         case '\\':
-          reverse += '/';
+          reverse.append('/');
           break;
 
         case '/':
-          reverse += '\\';
+            reverse.append('\\');
           break;
         case ')':
-          reverse += '(';
+            reverse.append('(');
           break;
         case '(':
-          reverse += ')';
+            reverse.append(')');
           break;
         case '>':
-          reverse += '<';
+            reverse.append('<');
           break;
         case '<':
-          reverse += '>';
+            reverse.append('>');
           break;
         case '}':
-          reverse += '{';
+            reverse.append('{');
           break;
         case '{':
-          reverse += '}';
+            reverse.append('}');
           break;
         case '[':
-          reverse += ']';
+            reverse.append(']');
           break;
         case ']':
-          reverse += '[';
+            reverse.append('[');
           break;
         default:
-          reverse += this.getAppearance().charAt(i);
+            reverse.append(this.getAppearance().charAt(i));
           break;
       }
     }
-    return reverse;
+    return reverse.toString();
   }
 
   private void turnAround() {
