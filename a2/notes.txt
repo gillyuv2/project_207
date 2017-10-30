@@ -347,4 +347,36 @@ Fix: 1. Added the method humanMove used the move for animal and modified the Hum
      2. Implement the Chicken move method by calling the animal move and specification to lay egg.
      3. Removed the redundant move method for the Pig class.
      4. removed the redundant move mehtod for the PoopCollector class.
-     
+
+###########
+# Step 32:
+
+Code Affected: .java files 1. AnimalFood 2. AnimalManure 3. Animals 4. Chicken 5. Egg 6. Farm 7. FarmMethods
+                           8. Human 9. Pig 10. PoopCollector 11. Wind
+
+Flaw: 1. Unused Variables 2. Access Authentication Problems as indicated by the idea. 3. Unecessary Comments.
+
+Fix:  1. Made all the changes to the methods of AnimalFood as indicated by the idea: 1. removed the unused variables.
+        2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      2. Made all the changes to the methods of AnimalManure as indicated by the idea: 1. removed the unused variables.
+             2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      3. Made all the changes to the methods of Animals as indicated by the idea: 1. removed the unused variables.
+            2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      4. Made all the changes to the methods of Chicken as indicated by the idea: 1. removed the unused variables.
+            2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      5. Made all the changes to the methods of Egg as indicated by the idea: 1. removed the unused variables.
+            2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      6. Made all the changes to the methods of Farm as indicated by the idea: 1. removed the unused variables.
+             2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      7. Made all the changes to the methods of FarmMethods as indicated by the idea: 1. removed the unused variables.
+            2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      8. Made all the changes to the methods of Human as indicated by the idea: 1. removed the unused variables.
+            2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      9. Made all the changes to the methods of Pig as indicated by the idea: 1. removed the unused variables.
+            2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      10. Made all the changes to the methods of PoopCollector as indicated by the idea: 1. removed the unused variables.
+            2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+      11. Made all the changes to the methods of Wind as indicated by the idea: 1. removed the unused variables.
+            2. set the appropraite methods to package private or private 3. Removed unnecessary comments.
+
+

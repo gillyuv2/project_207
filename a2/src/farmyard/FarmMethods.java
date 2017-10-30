@@ -9,7 +9,7 @@ public abstract class FarmMethods {
   private int x;
   private Color color;
   private int y;
-  private GraphicsContext g;
+
 
   public FarmMethods() {}
 

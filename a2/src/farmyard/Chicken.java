@@ -1,16 +1,11 @@
 package farmyard;
 
-import javafx.scene.canvas.GraphicsContext;
+
 import javafx.scene.paint.Color;
 
-import java.util.ArrayList;
+
 
 public class Chicken extends Animals {
-
-  private ArrayList<AnimalFood> belly = new ArrayList<>();
-
-  AnimalFood target = null;
-  private GraphicsContext g;
 
   /** Constructs a new Chicken. */
   public Chicken(int x, int y) {
@@ -31,7 +26,7 @@ public class Chicken extends Animals {
   }
 
   /** Lay an egg. */
-  void layEgg() {
+  private void layEgg() {
     Egg egg = new Egg(this.getX(), this.getY());
     Farm.track2.add(egg);
     Farm.eggList.add(egg);

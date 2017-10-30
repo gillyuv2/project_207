@@ -21,7 +21,7 @@ public class Animals extends FarmMethods {
     this.target = newTarget;
   }
 
-  String reverseAppearance() {
+  private String reverseAppearance() {
     String reverse = "";
     for (int i = this.getAppearance().length() - 1; i >= 0; i--) {
       switch (this.getAppearance().charAt(i)) {
@@ -64,7 +64,7 @@ public class Animals extends FarmMethods {
     return reverse;
   }
 
-  void turnAround() {
+  private void turnAround() {
     this.setAppearance(this.reverseAppearance());
     if (this.getX() <= 0) {
       this.setLocation(1, this.getY());
@@ -78,11 +78,11 @@ public class Animals extends FarmMethods {
     }
   }
 
-  private boolean digest() {
+  private void digest() {
 
     AnimalManure newManure = new AnimalManure(this.getX(), this.getY());
     newManure.setAppearance(this.manure);
-    return true;
+
   }
   void clearCollection(){
     this.collector.clear();
@@ -91,7 +91,7 @@ public class Animals extends FarmMethods {
     return this.collector;
   }
 
-  static Egg eggLocator() {
+  private static Egg eggLocator() {
     if (Farm.eggList.size() != 0) {
       return Farm.eggList.get(0);
     }
@@ -105,84 +105,83 @@ public class Animals extends FarmMethods {
     return null;
   }
 
-  static AnimalManure manureLocator() {
+  private static AnimalManure manureLocator() {
     if (Farm.manureList.size() != 0) {
       return Farm.manureList.get(0);
     }
     return null;
   }
 
-  public boolean move() {
-    boolean bool = false;
-    double d = Math.random();
-    if (target == null) {
-      if ((this instanceof Chicken) || (this instanceof Pig)){
-      target = Animals.foodLocator();
-      } else if (this instanceof Human){
-        target = Animals.eggLocator();
-        bool = true;
-      } else if (this instanceof PoopCollector){
-        target = Animals.manureLocator();
+  public void move() {
+
+      double d = Math.random();
+      if (target == null) {
+          if ((this instanceof Chicken) || (this instanceof Pig)) {
+              target = Animals.foodLocator();
+          } else if (this instanceof Human) {
+              target = Animals.eggLocator();
+
+          } else if (this instanceof PoopCollector) {
+              target = Animals.manureLocator();
+          }
       }
-    }
 
-    if (target != null) {
+      if (target != null) {
 
-      if (this.getX() == target.getX() && this.getY() == target.getY()) {
+          if (this.getX() == target.getX() && this.getY() == target.getY()) {
 
-        this.collector.add(target);
+              this.collector.add(target);
 
-        Farm.track1.add(target);
-        if ((this instanceof Chicken) || (this instanceof Pig)) {
-          Farm.foodList.remove(target);
-        } else if (this instanceof Human) {
-          Farm.eggList.remove(target);
-        } else if (this instanceof PoopCollector) {
-          Farm.manureList.remove(target);
-        }
-        target = null;
+              Farm.track1.add(target);
+              if ((this instanceof Chicken) || (this instanceof Pig)) {
+                  Farm.foodList.remove(target);
+              } else if (this instanceof Human) {
+                  Farm.eggList.remove(target);
+              } else if (this instanceof PoopCollector) {
+                  Farm.manureList.remove(target);
+              }
+              target = null;
 
-      }else {
+          } else {
 
-        // move toward the egg
-        if (this.getY() < target.getY()) {
-          this.setLocation(this.getX(), this.getY() + 1);
-        } else if (this.getY() > target.getY()) {
-          this.setLocation(this.getX(), this.getY() - 1);
-        } else {
-          this.setLocation(this.getX(), this.getY());
-        }
-        if (this.getX() < target.getX()) {
-          this.setLocation(this.getX() + 1, this.getY());
-        } else if (this.getX() > target.getX()) {
-          this.setLocation(this.getX() - 1, this.getY());
-        } else {
-          this.setLocation(this.getX(), this.getY());
-        }
-      }
-    } else {
-
-
-      if (d < 0.25) {
-        this.setLocation(this.getX(), this.getY() + 3);
-      } else if (0.25 < d && d < 0.5) {
-        this.setLocation(this.getX(), this.getY() - 3);
-      } else if (0.5 < d && d < 0.75) {
-        this.setLocation(this.getX() + 3, this.getY());
+              // move toward the egg
+              if (this.getY() < target.getY()) {
+                  this.setLocation(this.getX(), this.getY() + 1);
+              } else if (this.getY() > target.getY()) {
+                  this.setLocation(this.getX(), this.getY() - 1);
+              } else {
+                  this.setLocation(this.getX(), this.getY());
+              }
+              if (this.getX() < target.getX()) {
+                  this.setLocation(this.getX() + 1, this.getY());
+              } else if (this.getX() > target.getX()) {
+                  this.setLocation(this.getX() - 1, this.getY());
+              } else {
+                  this.setLocation(this.getX(), this.getY());
+              }
+          }
       } else {
-        this.setLocation(this.getX() - 3, this.getY());
+
+
+          if (d < 0.25) {
+              this.setLocation(this.getX(), this.getY() + 3);
+          } else if (0.25 < d && d < 0.5) {
+              this.setLocation(this.getX(), this.getY() - 3);
+          } else if (0.5 < d && d < 0.75) {
+              this.setLocation(this.getX() + 3, this.getY());
+          } else {
+              this.setLocation(this.getX() - 3, this.getY());
+          }
+
       }
 
-    }
+      if (this.collector.size() > 1) {
+          this.collector.clear();
+          digest();
+      }
 
-    if (this.collector.size() > 1) {
-      this.collector.clear();
-      digest();
-    }
-
-    if (Math.random() < 0.1) {
-      turnAround();
-    }
-    return bool;
+      if (Math.random() < 0.1) {
+          turnAround();
+      }
   }
 }

@@ -5,15 +5,12 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-/** A Human */
+
 public class Human extends Animals {
 
-  private Egg target = null;
-  /** This human's second coordinate. */
-  private int c;
 
-  private ArrayList<Egg> myBasket = new ArrayList<Egg>();
-  private GraphicsContext g;
+  private ArrayList<Egg> myBasket = new ArrayList<>();
+
 
   /** Constructs a new Human. */
   public Human(int x, int y) {
