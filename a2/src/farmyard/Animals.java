@@ -84,6 +84,12 @@ public class Animals extends FarmMethods {
     newManure.setAppearance(this.manure);
     return true;
   }
+  void clearCollection(){
+    this.collector.clear();
+  }
+  ArrayList getCollection(){
+    return this.collector;
+  }
 
   static Egg eggLocator() {
     if (Farm.eggList.size() != 0) {
@@ -106,11 +112,18 @@ public class Animals extends FarmMethods {
     return null;
   }
 
-  public void move() {
-
+  public boolean move() {
+    boolean bool = false;
     double d = Math.random();
     if (target == null) {
+      if ((this instanceof Chicken) || (this instanceof Pig)){
       target = Animals.foodLocator();
+      } else if (this instanceof Human){
+        target = Animals.eggLocator();
+        bool = true;
+      } else if (this instanceof PoopCollector){
+        target = Animals.manureLocator();
+      }
     }
 
     if (target != null) {
@@ -120,11 +133,16 @@ public class Animals extends FarmMethods {
         this.collector.add(target);
 
         Farm.track1.add(target);
-        Farm.foodList.remove(target);
-
+        if ((this instanceof Chicken) || (this instanceof Pig)) {
+          Farm.foodList.remove(target);
+        } else if (this instanceof Human) {
+          Farm.eggList.remove(target);
+        } else if (this instanceof PoopCollector) {
+          Farm.manureList.remove(target);
+        }
         target = null;
 
-      } else {
+      }else {
 
         // move toward the egg
         if (this.getY() < target.getY()) {
@@ -154,6 +172,7 @@ public class Animals extends FarmMethods {
       } else {
         this.setLocation(this.getX() - 3, this.getY());
       }
+
     }
 
     if (this.collector.size() > 1) {
@@ -164,5 +183,6 @@ public class Animals extends FarmMethods {
     if (Math.random() < 0.1) {
       turnAround();
     }
+    return bool;
   }
 }
