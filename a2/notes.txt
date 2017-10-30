@@ -153,3 +153,25 @@ Code Affected: .java file 1. Chicken 2. Pig
 Flaw: 1. Error in move condition. No maure was getting out. Then a lot of manure was coming out
 
 Fix: 1. Fixed the move method for both of the move methods.
+
+#########
+# Step 14
+
+Code Affected: .java file 1. Chicken 2. Pig
+
+Flaw: 1. Error in move condition. No maure was getting out. Then a lot of manure was coming out
+
+Fix: 1. Fixed the move method for both of the move methods.
+
+#########
+# Step 15
+
+Code Affected: .java file 1. Animal
+
+Flaw: 1. Unnecessary for loop in the methods foodLocator, eggLocator and manureLocator.
+      2. Irrevelant if condition in the above three methods
+      3. Access of the above three methods was public.
+
+Fix: 1. Removed the for loops from the above mentioned three methods.
+     2. Implemented new if conditions to check the size of the Farm.eggList, Farm.foodList and Farm.manureList.
+     3. Made the access of the three methods package private.
