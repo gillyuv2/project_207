@@ -304,3 +304,14 @@ Flaw: 1. Flaws in the design of the constructor of the three files which causes 
 Fix: 1. Added the fields x and y for the location of the above objects and called the setLocation method to set the
         location of these objects.
      2. Set manure as well in all three classes.
+
+#########
+# Step 28:
+
+Code Affected: .java files 1. Farm
+
+Flaw: 1. Noting the file
+
+Fix: 1. Added the ArrayLists such as foodList,  manureList and eggList.
+       2. These lists help to find the target in the animals' find target method for all three methods such as
+       eggLocator, maureLocator and the foodLocator. 

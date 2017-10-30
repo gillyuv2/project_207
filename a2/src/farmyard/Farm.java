@@ -9,5 +9,9 @@ public class Farm {
     static ArrayList<Egg> eggList = new ArrayList<>();
     static ArrayList<AnimalFood> foodList = new ArrayList<>();
     static ArrayList<AnimalManure> manureList = new ArrayList<>();
+
+    public Farm(){
+
+    }
 }
 
