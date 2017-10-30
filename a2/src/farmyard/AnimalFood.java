@@ -5,17 +5,13 @@ import javafx.scene.paint.Color;
 /** Animal Food */
 public class AnimalFood extends FarmMethods {
 
-  public double d;
-
-
-  /**
-   * Constructs a new bubble at the specified cursor location (x, y).
-   *
-   */
-  AnimalFood() {
+  /** Constructs a new bubble at the specified cursor location (x, y). */
+  AnimalFood(int x, int y) {
     this.setColor(Color.GRAY.darker().darker().darker());
-    // start off with o as the appearance cause all animal food looks the same
+    this.setLocation(x, y);
     this.setAppearance("%");
+    Farm.foodList.add(this);
+    Farm.track2.add(this);
   }
 
   /**
@@ -25,8 +21,8 @@ public class AnimalFood extends FarmMethods {
   public void blownUp() {
 
     // Move upwards
-    this.setLocation(this.getX(), this.getY()+1);
-     // no change left or right
+    this.setLocation(this.getX(), this.getY() + 1);
+    // no change left or right
   }
 
   /**
@@ -36,7 +32,7 @@ public class AnimalFood extends FarmMethods {
   public void blownDown() {
 
     // Move downwards
-      this.setLocation(this.getX(), this.getY()-1);
+    this.setLocation(this.getX(), this.getY() - 1);
   }
 
   /**
@@ -46,7 +42,7 @@ public class AnimalFood extends FarmMethods {
   public void blownLeft() {
 
     // Move upwards.
-      this.setLocation(this.getX()-1, this.getY());
+    this.setLocation(this.getX() - 1, this.getY());
   }
 
   /**
@@ -56,6 +52,6 @@ public class AnimalFood extends FarmMethods {
   public void blownRight() {
 
     // Move upwards.
-      this.setLocation(this.getX()+1, this.getY());
+    this.setLocation(this.getX() + 1, this.getY());
   }
 }

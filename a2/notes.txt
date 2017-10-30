@@ -281,3 +281,14 @@ Code Affected: .java files 1. FarmMethods
 Flaw: 1. Errors for the already existing bounds of the FarmMethods's setLocation method.
 
 Fix: 1. Changed the bounds for the setLocation methods in order to fix the location of the objects in the canvas frame.
+
+##########
+# Step 26:
+
+Code Affected: .java 1. AnimalManure 2. AnimalFood.
+
+Flaw: 1. Were causing error in the proper grapics for the process of collecting the manure and the animal food by
+         animals.
+
+Fix: 1. Added the add method for the foodList in the AnimalFood on every instance of the AnimalFood.
+     2. Added the add method for the maureList in the AnimalManure on every instance of the AnimalManure.
