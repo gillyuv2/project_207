@@ -207,3 +207,14 @@ Flaw: 1. Unnecessary variable named going right in the chicken class.
 
 Fix: 1. Removed the variable and every instantiation of the variable in the Chicken.java file.
      2. Removed the Arraylist from the file.
+
+#########
+# Step 19
+
+Code Affected: .java 1. Pig
+
+Flaw: 1. Unnecessary variable named going right in the chicken class.
+      2. Unnecessary variable named g in the class.
+
+Fix: 1. Removed the variable and every instantiation of the variable in the Chicken.java file.
+     2. Removed the variable g from the file.

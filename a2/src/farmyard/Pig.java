@@ -2,7 +2,6 @@ package farmyard;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
 
 public class Pig extends Animals {
@@ -10,9 +9,8 @@ public class Pig extends Animals {
      * How this Pig appears on the screen.
      */
     private ArrayList<AnimalFood> belly = new ArrayList<>();
-    private GraphicsContext g;
-    boolean goingRight;
     private AnimalFood target = null;
+
     /**
      * Constructs a new Pig.
      */
@@ -20,10 +18,8 @@ public class Pig extends Animals {
         this.setColor(Color.PINK.darker().darker().darker());
         this.setAppearance(":(8)");
         this.setManure("*");
-        this.goingRight = true;
         this.setLocation(x,y);
     }
-
 
     /**
      * Causes this item to take its turn in the farm-pen simulation.
@@ -41,11 +37,10 @@ public class Pig extends Animals {
             if (this.getX() == target.getX() && this.getY() == target.getY()) {
 
                 this.belly.add(target);
-                System.out.println("Burp");
-                Farm.animalFoodList.remove(target);
-                Farm.myFarmAnimals[target.getY()][target.getX()] = null;
+                Farm.track1.add(target);
+                Farm.foodList.remove(target);
+//                Farm.myFarmAnimals.remove(target);
                 target = null;
-
 
             } else {
 
