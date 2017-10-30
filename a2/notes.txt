@@ -272,3 +272,12 @@ Flaw: 1. Repetitive code for move in Pig and Chicken.
 Fix: 1. Removed the move method from the pig class.
      2. Modified the move in Chicken class by removing the similar code with the move from the Animals file and
         just adding the lay egg method for the Chicken and named it as chickenMove.
+
+#########
+# Step 25
+
+Code Affected: .java files 1. FarmMethods
+
+Flaw: 1. Errors for the already existing bounds of the FarmMethods's setLocation method.
+
+Fix: 1. Changed the bounds for the setLocation methods in order to fix the location of the objects in the canvas frame.
