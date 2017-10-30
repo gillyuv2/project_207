@@ -10,6 +10,7 @@ public class AnimalManure extends FarmMethods {
         this.setAppearance("");
         Farm.track2.add(this);
         Farm.manureList.add(this);
+
     }
 
 }

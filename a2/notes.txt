@@ -285,10 +285,22 @@ Fix: 1. Changed the bounds for the setLocation methods in order to fix the locat
 ##########
 # Step 26:
 
-Code Affected: .java 1. AnimalManure 2. AnimalFood.
+Code Affected: .java files 1. AnimalManure 2. AnimalFood.
 
-Flaw: 1. Were causing error in the proper grapics for the process of collecting the manure and the animal food by
+Flaw: 1. Were causing error in the proper graphics for the process of collecting the manure and the animal food by
          animals.
 
 Fix: 1. Added the add method for the foodList in the AnimalFood on every instance of the AnimalFood.
      2. Added the add method for the maureList in the AnimalManure on every instance of the AnimalManure.
+
+#########
+# Step 27:
+
+Code Affected: .java files 1. AnimalFood 2. AnimalManure 3. Egg
+
+Flaw: 1. Flaws in the design of the constructor of the three files which causes the error and made makes code compilcated
+         while instantiation of the constructor of the above objects in the Main.java
+
+Fix: 1. Added the fields x and y for the location of the above objects and called the setLocation method to set the
+        location of these objects.
+     2. Set manure as well in all three classes.
