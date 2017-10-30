@@ -183,4 +183,16 @@ Code Affected: .java file 1. Farm
 
 Flaw: 1. List access not packgae private for the eggList, foodList, manurelist.
 
-Fix: 1. Made the access for the mentioned lists package private. 
+Fix: 1. Made the access for the mentioned lists package private.
+
+#########
+# Step 17
+
+Code Affected: .java file 1. Main 2. AnimalFood
+
+Flaw: 1. Irrelevant use of the double d by creating it in the AnimalFood and then suing it in the Main class
+      2. Unoptimized if statements.
+
+Fix: 1. Removed the double d from the AnimalFood.
+     2. Fixed the lolfood in the Main class and used the windHorizontal and windVertical methods properly to remove
+        any unnecessary decalrations of the variables.
