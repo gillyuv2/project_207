@@ -175,3 +175,12 @@ Flaw: 1. Unnecessary for loop in the methods foodLocator, eggLocator and manureL
 Fix: 1. Removed the for loops from the above mentioned three methods.
      2. Implemented new if conditions to check the size of the Farm.eggList, Farm.foodList and Farm.manureList.
      3. Made the access of the three methods package private.
+
+#########
+# Step 16
+
+Code Affected: .java file 1. Farm
+
+Flaw: 1. List access not packgae private for the eggList, foodList, manurelist.
+
+Fix: 1. Made the access for the mentioned lists package private. 
