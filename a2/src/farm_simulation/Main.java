@@ -13,6 +13,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
+
 import java.util.ArrayList;
 
 /** Our take on the "classical" game Farm Ville */
@@ -22,9 +24,12 @@ public class Main extends Application {
     launch(args);
   }
 
+
+
   @Override
   public void start(Stage primaryStage) {
     primaryStage.setTitle("FarmVille");
+
 
     Group root = new Group();
     Scene theScene = new Scene(root);
@@ -34,23 +39,23 @@ public class Main extends Application {
 
     GraphicsContext gc = canvas.getGraphicsContext2D();
 
-    Farm.myFarmAnimals.add((Chicken) new Chicken(0, 0));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(16, 12));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(13, 10));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(30, 30));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(0, 30));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(10, 0));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(27, 0));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(0, 18));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(0, 27));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(50, 0));
-    Farm.myFarmAnimals.add((Chicken) new Chicken(0, 10));
+    Farm.myFarmAnimals.add( new Chicken(0, 0));
+    Farm.myFarmAnimals.add( new Chicken(16, 12));
+    Farm.myFarmAnimals.add( new Chicken(13, 10));
+    Farm.myFarmAnimals.add( new Chicken(30, 30));
+    Farm.myFarmAnimals.add( new Chicken(0, 30));
+    Farm.myFarmAnimals.add( new Chicken(10, 0));
+    Farm.myFarmAnimals.add( new Chicken(27, 0));
+    Farm.myFarmAnimals.add( new Chicken(0, 18));
+    Farm.myFarmAnimals.add( new Chicken(0, 27));
+    Farm.myFarmAnimals.add( new Chicken(50, 0));
+    Farm.myFarmAnimals.add( new Chicken(0, 10));
     Farm.myFarmAnimals.add( new Pig(6, 0));
     Farm.myFarmAnimals.add( new Pig(0, 30));
-    Farm.myFarmAnimals.add((Human) new Human(60, 0));
-    Farm.myFarmAnimals.add(new PoopCollector("Cleaner1",50, 10));
-    Farm.myFarmAnimals.add(new PoopCollector("Cleaner2",10, 10));
-      Farm.myFarmAnimals.add(new PoopCollector("Cleaner3",20, 10));
+    Farm.myFarmAnimals.add( new Human(60, 0));
+    Farm.myFarmAnimals.add( new PoopCollector("Cleaner1",50, 10));
+    Farm.myFarmAnimals.add( new PoopCollector("Cleaner2",10, 10));
+    Farm.myFarmAnimals.add( new PoopCollector("Cleaner3",20, 10));
 
     drawShapes(gc);
 
