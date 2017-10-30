@@ -10,8 +10,7 @@ public class Chicken extends Animals {
 
   private ArrayList<AnimalFood> belly = new ArrayList<>();
 
-  boolean goingRight;
-  private ArrayList<AnimalFood> myBasket = new ArrayList<AnimalFood>();
+
   AnimalFood target = null;
   private GraphicsContext g;
 
@@ -21,13 +20,8 @@ public class Chicken extends Animals {
     this.setColor(Color.RED);
     this.setAppearance("/'/>");
     this.setManure(".");
-    this.goingRight = true;
     this.setLocation(x,y);
   }
-
-  /** Set this item's location. */
-
-
 
   /** Causes this item to take its turn in the farm-pen simulation. */
   public void move() {
@@ -44,8 +38,10 @@ public class Chicken extends Animals {
       if (this.getX() == target.getX() && this.getY() == target.getY()) {
 
         this.belly.add(target);
-        Farm.animalFoodList.remove(target);
-        Farm.myFarmAnimals[target.getY()][target.getX()] = null;
+        Farm.foodList.remove(target);
+        Farm.track1.add(target);
+
+//        Farm.myFarmAnimals.remove(target);
         target = null;
 
 
@@ -100,9 +96,9 @@ public class Chicken extends Animals {
 
   /** Lay an egg. */
   private void layEgg() {
-    Egg egg = new Egg(this.getX(), this.getY());
-    Farm.eggList.add(egg);
-    Farm.myFarmAnimals[this.getY()][this.getX()] = egg;
+      Egg egg = new Egg(this.getX(), this.getY());
+      Farm.track2.add(egg);
+      Farm.eggList.add(egg);
 
     }
 }
