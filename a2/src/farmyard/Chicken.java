@@ -31,7 +31,7 @@ public class Chicken extends Animals {
   }
 
   /** Lay an egg. */
-  private void layEgg() {
+  void layEgg() {
     Egg egg = new Egg(this.getX(), this.getY());
     Farm.track2.add(egg);
     Farm.eggList.add(egg);

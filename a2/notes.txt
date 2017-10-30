@@ -333,4 +333,18 @@ Code Affected: .java 1. Animal
 Flaw: Repetitive code in the move of human and poopCollector
 
 Fix:1. In the move method put the speciifc instance to check which subclass uses it later.
-    2. Added instances for the Human, PoopColelctor, Chicken and Pig. 
+    2. Added instances for the Human, PoopColelctor, Chicken and Pig.
+
+##########
+# Step 31:
+
+Code Affected: .java files 1. Human 2. PoopCollector 3. Chicken 4. Pig
+
+Flaw: 1. Errors in the proper functioning of the move function of these classes.
+
+Fix: 1. Added the method humanMove used the move for animal and modified the Human's mybasket size to get the Egg counter
+        correct counting.
+     2. Implement the Chicken move method by calling the animal move and specification to lay egg.
+     3. Removed the redundant move method for the Pig class.
+     4. removed the redundant move mehtod for the PoopCollector class.
+     
