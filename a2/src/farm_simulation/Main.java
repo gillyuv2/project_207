@@ -48,6 +48,9 @@ public class Main extends Application {
     Farm.myFarmAnimals.add( new Pig(6, 0));
     Farm.myFarmAnimals.add( new Pig(0, 30));
     Farm.myFarmAnimals.add((Human) new Human(60, 0));
+    Farm.myFarmAnimals.add(new PoopCollector("Cleaner1",50, 10));
+    Farm.myFarmAnimals.add(new PoopCollector("Cleaner2",10, 10));
+      Farm.myFarmAnimals.add(new PoopCollector("Cleaner3",20, 10));
 
     drawShapes(gc);
 
@@ -68,7 +71,9 @@ public class Main extends Application {
                       } else if (item instanceof Pig) {
                         ((Pig) item).move();
                       } else if (item instanceof Human) {
-                        ((Human) item).move();
+                          ((Human) item).move();
+                      } else if (item instanceof PoopCollector) {
+                              ((PoopCollector) item).move();
                       } else if (item instanceof AnimalFood) {
                         AnimalFood lolfood = (AnimalFood) item;
 
@@ -104,6 +109,8 @@ public class Main extends Application {
             ((Pig) item).draw(gc);
           } else if (item instanceof Human) {
             ((Human) item).draw(gc);
+              } else if (item instanceof PoopCollector) {
+                  ((PoopCollector) item).draw(gc);
           } else if (item instanceof AnimalManure) {
             ((AnimalManure) item).draw(gc);
           } else if (item instanceof AnimalFood) {

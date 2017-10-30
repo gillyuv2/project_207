@@ -218,3 +218,17 @@ Flaw: 1. Unnecessary variable named going right in the chicken class.
 
 Fix: 1. Removed the variable and every instantiation of the variable in the Chicken.java file.
      2. Removed the variable g from the file.
+
+#########
+# Step 20
+
+Code Affected: .java files 1. PoopCollector 2. Main
+
+Flaw: Nothing
+
+Fix: 1. Added a new class PoopCollector that collects the manure in the farm.
+     2. This class extends the animals and have all the same methods as the Animals.
+     3. This class move methods uses the manure locator from the animals class and then finds the manure and collect it.
+     4. Spawned the Cleaner1, Cleaner2 and Cleaner3. in the Main.java file.
+     5. Added the move method call in the Main.java file.
+     5. Added the draw method for the in the Main.java file.
