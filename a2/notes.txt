@@ -241,3 +241,12 @@ Code Affected: .java files 1. Main.java
 Flaw: 1. Unnecessary Casting while spawning of the FarmMethods.
 
 Fix: 1. Removed all the casting while spwaning.
+
+#########
+# Step 22
+
+Code Affected: .java files 1. Wind.java
+
+Flaw: Error in the values of the wind direction.
+
+Fix: decreased the probability of movement of the wind.
