@@ -7,98 +7,33 @@ import java.util.ArrayList;
 
 public class Chicken extends Animals {
 
-
   private ArrayList<AnimalFood> belly = new ArrayList<>();
-
 
   AnimalFood target = null;
   private GraphicsContext g;
-
 
   /** Constructs a new Chicken. */
   public Chicken(int x, int y) {
     this.setColor(Color.RED);
     this.setAppearance("/'/>");
     this.setManure(".");
-    this.setLocation(x,y);
+    this.setLocation(x, y);
   }
 
   /** Causes this item to take its turn in the farm-pen simulation. */
-  public void move() {
+  public void chickenMove() {
+      this.move();
 
-    double d = Math.random();
-    if (target == null) {
-      target = Animals.foodLocator();
-
-    }
-
-    if (target != null) {
-
-      // Am I on an egg?
-      if (this.getX() == target.getX() && this.getY() == target.getY()) {
-
-        this.belly.add(target);
-        Farm.foodList.remove(target);
-        Farm.track1.add(target);
-
-//        Farm.myFarmAnimals.remove(target);
-        target = null;
-
-
-      } else {
-
-        // move toward the egg
-        if (this.getY() < target.getY()) {
-          this.setLocation(this.getX(), this.getY() + 1);
-        } else if (this.getY() > target.getY()) {
-          this.setLocation(this.getX(), this.getY() - 1);
-        } else {
-          this.setLocation(this.getX(), this.getY());
-        }
-        if (this.getX() < target.getX()) {
-          this.setLocation(this.getX() + 1, this.getY());
-        } else if (this.getX() > target.getX()) {
-          this.setLocation(this.getX() - 1, this.getY());
-        } else {
-          this.setLocation(this.getX(), this.getY());
-        }
+      if (Math.random() < 0.01) {
+        layEgg();
       }
-    } else {
-      // no egg to pick up
-      // Move one spot to the right or left.
 
-      if (d < 0.25) {
-        this.setLocation(this.getX(), this.getY() + 1);
-      } else if (0.25 < d && d < 0.5) {
-        this.setLocation(this.getX(), this.getY() - 1);
-      } else if (0.5 < d && d < 0.75) {
-        this.setLocation(this.getX() + 1, this.getY());
-      } else {
-        this.setLocation(this.getX() - 1, this.getY());
-      }
-    }
-
-    if (this.belly.size() > 1){
-      this.belly.clear();
-      System.out.println("Pooooooooooooooooooop");
-      digest();}
-    // Every now and then lay an egg.
-    double d2 = Math.random();
-    if (Math.random() < 0.1) {
-      layEgg();
-    }
-
-    double d3 = Math.random();
-    if (Math.random() < 0.1) {
-      turnAround();
-    }
   }
 
   /** Lay an egg. */
   private void layEgg() {
-      Egg egg = new Egg(this.getX(), this.getY());
-      Farm.track2.add(egg);
-      Farm.eggList.add(egg);
-
-    }
+    Egg egg = new Egg(this.getX(), this.getY());
+    Farm.track2.add(egg);
+    Farm.eggList.add(egg);
+  }
 }
